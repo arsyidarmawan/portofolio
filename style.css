@@ -1,14 +1,15 @@
-
-.jumbotron {
-  padding-top: 6rem;
-  background-color: #e2edff;
+/* Efek gulir halus saat menu diklik */
+html {
+  scroll-behavior: smooth;
 }
 
-#project {
-  background-color: #e2edff;
-}
-
+/* Memberikan jarak aman di atas section agar judul tidak tertutup navbar */
 section {
-  padding-top: 5rem;
+  scroll-margin-top: 68px;
 }
 
+/* Memastikan tinggi kartu proyek seragam */
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
