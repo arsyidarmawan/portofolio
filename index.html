@@ -55,64 +55,64 @@
         </div>
       </div>
     </section>
+<!-- INTERACTIVE DATA WORKSPACE (Versi Rupiah) -->
+<section id="workspace" class="py-5 text-white" style="background-color: #134074;">
+  <div class="container">
+    <div class="text-center mb-5">
+      <span class="badge bg-info text-dark px-3 py-2 rounded-pill mb-2">LIVE APP</span>
+      <h2 class="fw-bold">Interactive Data Workspace</h2>
+      <p class="opacity-75">Coba simulasi model *Machine Learning* statis langsung di peramban Anda.</p>
+    </div>
 
-    <!-- INTERACTIVE DATA WORKSPACE (Fitur Input Data Tambahan) -->
-    <section id="workspace" class="py-5 style-workspace text-white" style="background-color: #134074;">
-      <div class="container">
-        <div class="text-center mb-5">
-          <span class="badge bg-info text-dark px-3 py-2 rounded-pill mb-2">LIVE APP</span>
-          <h2 class="fw-bold">Interactive Data Workspace</h2>
-          <p class="opacity-75">Coba simulasi model *Machine Learning* statis langsung di peramban Anda.</p>
-        </div>
-
-        <div class="row g-4">
-          <!-- Form Input Simulasi Prediksi Model -->
-          <div class="col-lg-6">
-            <div class="card border-0 shadow text-dark h-100">
-              <div class="card-body p-4">
-                <h5 class="card-title fw-bold mb-3"><i class="bi bi-calculator-fill me-2 text-primary"></i>Simulasi Skor Retensi Pelanggan (Churn)</h5>
-                <form id="churnForm">
-                  <div class="mb-3">
-                    <label class="form-label font-sm fw-semibold">Durasi Berlangganan (Bulan)</label>
-                    <input type="number" id="tenure" class="form-control" value="12" min="1" required />
-                  </div>
-                  <div class="mb-3">
-                    <label class="form-label font-sm fw-semibold">Total Tagihan Bulanan ($)</label>
-                    <input type="number" id="monthlyCharges" class="form-control" value="65" min="1" required />
-                  </div>
-                  <div class="mb-3">
-                    <label class="form-label font-sm fw-semibold">Kategori Kontrak</label>
-                    <select id="contractType" class="form-select">
-                      <option value="0.2">Bulan-ke-Bulan (Risiko Tinggi)</option>
-                      <option value="0.05">Kontrak 1 Tahun</option>
-                      <option value="0.01">Kontrak 2 Tahun (Stabil)</option>
-                    </select>
-                  </div>
-                  <button type="button" onclick="hitungSkenario()" class="btn btn-primary w-100 fw-bold">Jalankan Analisis Prediksi</button>
-                </form>
+    <div class="row g-4">
+      <!-- Form Input Simulasi -->
+      <div class="col-lg-6">
+        <div class="card border-0 shadow text-dark h-100">
+          <div class="card-body p-4">
+            <h5 class="card-title fw-bold mb-3"><i class="bi bi-calculator-fill me-2 text-primary"></i>Simulasi Skor Retensi Pelanggan (Churn)</h5>
+            <form id="churnForm">
+              <div class="mb-3">
+                <label class="form-label font-sm fw-semibold">Durasi Berlangganan (Bulan)</label>
+                <input type="number" id="tenure" class="form-control" value="12" min="1" required />
               </div>
-            </div>
-          </div>
-
-          <!-- Output Real-time Hasil Pemrosesan Input -->
-          <div class="col-lg-6">
-            <div class="card border-0 shadow text-dark h-100 bg-white">
-              <div class="card-body p-4 d-flex flex-column justify-content-between">
-                <div>
-                  <h5 class="card-title fw-bold mb-4"><i class="bi bi-bar-chart-line-fill me-2 text-info"></i>Hasil Analisis Prediksi</h5>
-                  <div class="p-4 rounded text-center mb-3" id="resultBox" style="background-color: #f8f9fa;">
-                    <span class="text-muted d-block font-sm">Probabilitas Churn (Pindah Kompetitor)</span>
-                    <h1 class="display-3 fw-bold my-2 text-primary" id="churnOutput">0.0%</h1>
-                    <span class="badge bg-secondary px-3 py-2 fs-6" id="statusBadge">Menunggu Input Data</span>
-                  </div>
-                </div>
-                <p class="text-muted small mb-0">*Aplikasi ini menjalankan matriks scoring berbasis logika regresi linear sederhana pada sisi client.*</p>
+              <div class="mb-3">
+                <label class="form-label font-sm fw-semibold">Total Tagihan Bulanan (Rupiah)</label>
+                <!-- Nilai default diubah ke Rp 150.000 agar realistis -->
+                <input type="number" id="monthlyCharges" class="form-control" value="150000" min="0" step="10000" required />
               </div>
-            </div>
+              <div class="mb-3">
+                <label class="form-label font-sm fw-semibold">Kategori Kontrak</label>
+                <select id="contractType" class="form-select">
+                  <option value="0.2">Bulan-ke-Bulan (Risiko Tinggi)</option>
+                  <option value="0.05">Kontrak 1 Tahun</option>
+                  <option value="0.01">Kontrak 2 Tahun (Stabil)</option>
+                </select>
+              </div>
+              <button type="button" onclick="hitungSkenario()" class="btn btn-primary w-100 fw-bold">Jalankan Analisis Prediksi</button>
+            </form>
           </div>
         </div>
       </div>
-    </section>
+
+      <!-- Output Real-time -->
+      <div class="col-lg-6">
+        <div class="card border-0 shadow text-dark h-100 bg-white">
+          <div class="card-body p-4 d-flex flex-column justify-content-between">
+            <div>
+              <h5 class="card-title fw-bold mb-4"><i class="bi bi-bar-chart-line-fill me-2 text-info"></i>Hasil Analisis Prediksi</h5>
+              <div class="p-4 rounded text-center mb-3" id="resultBox" style="background-color: #f8f9fa;">
+                <span class="text-muted d-block font-sm">Probabilitas Churn (Pindah Kompetitor)</span>
+                <h1 class="display-3 fw-bold my-2 text-primary" id="churnOutput">0.0%</h1>
+                <span class="badge bg-secondary px-3 py-2 fs-6" id="statusBadge">Menunggu Input Data</span>
+              </div>
+            </div>
+            <p class="text-muted small mb-0">*Aplikasi ini menjalankan matriks scoring berbasis logika regresi linear sederhana pada sisi client.*</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
     <!-- Projects Grid -->
     <section id="project" class="container py-5">
@@ -181,34 +181,35 @@
 
     <!-- Core Business Logic Script (Pemroses Input) -->
     <script>
-      function hitungSkenario() {
-        const tenure = parseFloat(document.getElementById('tenure').value) || 0;
-        const monthly = parseFloat(document.getElementById('monthlyCharges').value) || 0;
-        const contractFactor = parseFloat(document.getElementById('contractType').value);
+  function hitungSkenario() {
+    const tenure = parseFloat(document.getElementById('tenure').value) || 0;
+    const monthly = parseFloat(document.getElementById('monthlyCharges').value) || 0;
+    const contractFactor = parseFloat(document.getElementById('contractType').value);
 
-        // Algoritma tiruan berbasis rumus matematis Data Science dasar
-        let baseRisk = (monthly / 150) * 0.4 + contractFactor;
-        if (tenure > 24) baseRisk -= 0.15;
-        if (tenure < 6) baseRisk += 0.2;
+    // Rumus disesuaikan untuk skala Rupiah (misal asumsi tagihan Rp 500.000 ke atas berisiko churn lebih tinggi)
+    let baseRisk = (monthly / 500000) * 0.4 + contractFactor;
+    
+    if (tenure > 24) baseRisk -= 0.15;
+    if (tenure < 6) baseRisk += 0.2;
 
-        const finalProbability = Math.min(Math.max(baseRisk * 100, 2.5), 98.7).toFixed(1);
+    const finalProbability = Math.min(Math.max(baseRisk * 100, 2.5), 98.7).toFixed(1);
 
-        const outText = document.getElementById('churnOutput');
-        const badge = document.getElementById('statusBadge');
-        outText.innerText = finalProbability + '%';
+    const outText = document.getElementById('churnOutput');
+    const badge = document.getElementById('statusBadge');
+    outText.innerText = finalProbability + '%';
 
-        if (finalProbability > 60) {
-          badge.innerText = "Risiko Churn Tinggi";
-          badge.className = "badge bg-danger px-3 py-2 fs-6";
-        } else if (finalProbability > 30) {
-          badge.innerText = "Risiko Moderat";
-          badge.className = "badge bg-warning text-dark px-3 py-2 fs-6";
-        } else {
-          badge.innerText = "Konsumen Loyal";
-          badge.className = "badge bg-success px-3 py-2 fs-6";
-        }
-      }
-    </script>
+    if (finalProbability > 60) {
+      badge.innerText = "Risiko Churn Tinggi";
+      badge.className = "badge bg-danger px-3 py-2 fs-6";
+    } else if (finalProbability > 30) {
+      badge.innerText = "Risiko Moderat";
+      badge.className = "badge bg-warning text-dark px-3 py-2 fs-6";
+    } else {
+      badge.innerText = "Konsumen Loyal";
+      badge.className = "badge bg-success px-3 py-2 fs-6";
+    }
+  }
+</script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
